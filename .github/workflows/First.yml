@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Elik GitHub Action CI
 
 # Controls when the workflow will run
 on:
@@ -21,6 +21,7 @@ jobs:
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
+    if: "!contains(github.event.head_commit.message, 'skip')"
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
